@@ -9,6 +9,6 @@ COPY --from=builder /app .
 
 EXPOSE 4000
 LABEL name="FORUM" \
-      authors="dyelesho, aishagul, aladik" \
+      author="Ametiev" \
       release_date="05.06.2023"
 CMD ["./forum"]
