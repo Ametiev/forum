@@ -1,0 +1,43 @@
+{{define "title"}}Create a new Post{{end}}
+{{define "main"}}
+<form action='/post/create' method='POST'>
+<div>
+    <h3>Choose a Category:</h3>
+    {{with .Form.FieldErrors.cats}}
+    <label class='error'>{{.}}</label>
+    {{end}}
+    <div class="category-slider">
+        <form action="/" method="POST">
+            <br>
+          <input type="checkbox" name="Technology" value="Technology" class="form-spacing">
+          <label for="Technology">Technology</label>
+          <br>
+          <input type="checkbox" name="Travel" value="Travel" class="form-spacing">
+          <label for="Travel">Travel</label>
+          <br>
+          <input type="checkbox" name="Health" value="Health" class="form-spacing">
+          <label for="Health">Health</label>
+          <br>
+          <input type="checkbox" name="Entertainment" value="Entertainment" class="form-spacing">
+          <label for="Entertainment">Entertainment</label>
+        </form>
+</div>
+<div>
+    <label>Title:</label>
+    {{with .Form.FieldErrors.title}}
+    <label class='error'>{{.}}</label>
+    {{end}}
+    <input type='text' name='title' value='{{.Form.Title}}'>
+</div>
+<div>
+    <label>Content:</label>
+    {{with .Form.FieldErrors.content}}
+    <label class='error'>{{.}}</label>
+    {{end}}
+    <textarea name='content'>{{.Form.Content}}</textarea>
+</div>
+<div>
+    <input type='submit' value='Publish post'>
+</div>
+</form>
+{{end}}

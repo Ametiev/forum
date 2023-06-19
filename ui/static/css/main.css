@@ -1,0 +1,747 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    font-family: "Ubuntu Mono", monospace;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    line-height: 1.5;
+    background-color: #efebf7;
+    color: #34495E;
+    overflow-y: scroll;
+}
+
+header, nav, main, footer {
+    padding: 2px calc((100% - 800px) / 2) 0;
+}
+
+main {
+    margin-top: 54px;
+    margin-bottom: 54px;
+    min-height: calc(100vh - 345px);
+    overflow: auto;
+}
+
+h1 a {
+    font-size: 36px;
+    font-weight: bold;
+    background-image: url("/static/img/logo.png");
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    height: 36px;
+    padding-left: 50px;
+    position: relative;
+}
+
+h1 a:hover {
+    text-decoration: none;
+    color: #34495E;
+}
+
+h2 {
+    font-size: 22px;
+    margin-bottom: 36px;
+    position: relative;
+    top: -9px;
+}
+
+
+a {
+    color: #34495E;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #34495E;
+    text-decoration: underline;
+}
+
+textarea, input:not([type="submit"]) {
+    font-size: 18px;
+    font-family: "Ubuntu Mono", monospace;
+}
+
+header {
+    background-size: 100% 6px;
+    background-repeat: no-repeat;
+    border-bottom: 1px solid #E4E5E7;
+    overflow: auto;
+    padding-top: 33px;
+    padding-bottom: 27px;
+    text-align: center;
+}
+
+header a {
+    color: #34495E;
+    text-decoration: none;
+}
+.category-slider {
+    display: flex;
+    overflow-x: scroll;
+    padding: 10px 0;
+  }
+  
+  .category-slider a {
+    padding: 5px 10px;
+    margin-right: 10px;
+    font-size: 14px;
+    color: #333;
+    text-decoration: none;
+    border-radius: 20px;
+    background-color: #f0f0f0;
+    transition: background-color 0.3s ease;
+  }
+  
+  .category-slider a:hover {
+    background-color: #e5e5e5;
+  }
+  
+  .category-slider a:first-child {
+    margin-left: 10px;
+  }
+  
+  .category-slider a:last-child {
+    margin-right: 0;
+  }
+
+nav a {
+    margin-right: 1.5em;
+    display: inline-block;
+}
+
+nav form {
+    display: inline-block;
+    margin-left: 1.5em;
+}
+
+nav div {
+    width: 50%;
+    float: left;
+}
+
+nav div:last-child {
+    text-align: right;
+}
+
+nav div:last-child a {
+    margin-left: 1.5em;
+    margin-right: 0;
+}
+
+nav a.live {
+    color: #34495E;
+    cursor: default;
+}
+
+nav a.live:hover {
+    text-decoration: none;
+}
+
+nav a.live:after {
+    content: '';
+    display: block;
+    position: relative;
+    left: calc(50% - 7px);
+    top: 9px;
+    width: 14px;
+    height: 14px;
+    background: #F7F9FA;
+    border-left: 1px solid #E4E5E7;
+    border-bottom: 1px solid #E4E5E7;
+    -moz-transform: rotate(45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+.submit-button {
+    font-size: 12px;
+    padding: 3px 6px;
+    margin-right: 10px;
+    background: none;
+    border: none;
+    color: #34495E;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+.submit-button:hover {
+    text-decoration: underline;
+ }
+
+.category-link {
+    font-size: 12px;
+    padding: 3px 6px;
+    margin-right: 10px;
+    background: none;
+    border: none;
+    color: #34495E;
+    text-decoration: none;
+    cursor: pointer;
+ }
+
+.category-link:hover {
+   text-decoration: underline;
+}
+
+.error-message {
+    background-color: #ffe5e5;
+    border: 1px solid #f0b2b2;
+    color: #8a1f11;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+form div {
+    margin-bottom: 18px;
+}
+
+form div:last-child {
+    border-top: 1px dashed #E4E5E7;
+}
+
+form input[type="radio"] {
+    margin-left: 18px;
+}
+
+form input[type="text"], form input[type="password"], form input[type="email"] {
+    padding: 0.75em 18px;
+    width: 100%;
+}
+
+form input[type=text], form input[type="password"], form input[type="email"], textarea {
+    color: #6A6C6F;
+    background: #FFFFFF;
+    border: 1px solid #E4E5E7;
+    border-radius: 3px;
+}
+
+form label {
+    display: inline-block;
+    margin-bottom: 9px;
+}
+
+.error {
+    color: #6c4ab2 ;
+    font-weight: bold;
+    display: block;
+}
+.form-spacing {
+    height: 11px;
+    width: 10px;
+    margin: 10px;
+  }
+
+.error + textarea, .error + input {
+    border-color: #6c4ab2  !important;
+    border-width: 2px !important;
+}
+
+textarea {
+    padding: 18px;
+    width: 100%;
+    height: 266px;
+}
+
+button {
+    font-size: 14px;
+    padding: 5px 10px;
+    margin-right: 10px;
+    background: none;
+    padding: 0;
+    border: none;
+    color: #34495E;
+    text-decoration: none;
+}
+
+button:hover {
+    color: #34495E;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.login-link {
+    color: #0095f6;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  .login-link:hover {
+    text-decoration: underline;
+  }
+
+.post {
+    background-color: #FFFFFF;
+    border: 1px solid #E4E5E7;
+    border-radius: 3px;
+}
+
+.post pre {
+    padding: 18px;
+    border-top: 1px solid #E4E5E7;
+    border-bottom: 1px solid #E4E5E7;
+}
+
+.post .metadata {
+    background-color: #F7F9FA;
+    color: #6A6C6F;
+    padding: 0.75em 18px;
+    overflow: auto;
+}
+
+.post .metadata span {
+    float: right;
+}
+
+.post .metadata strong {
+    color: #34495E;
+}
+
+.post .metadata time {
+    display: inline-block;
+}
+
+.post .metadata time:first-child {
+    float: left;
+}
+
+.post .metadata time:last-child {
+    float: right;
+}
+
+div.flash {
+    color: #FFFFFF;
+    font-weight: bold;
+    background-color: #34495E;
+    padding: 18px;
+    margin-bottom: 36px;
+    text-align: center;
+}
+
+div.error {
+    color: #FFFFFF;
+    background-color: #6c4ab2 ;
+    padding: 18px;
+    margin-bottom: 36px;
+    font-weight: bold;
+    text-align: center;
+}
+.no-resize {
+    resize: none;
+    overflow: hidden;
+}
+.comments {
+    margin-top: 20px;
+}
+
+.comment-box {
+    margin-bottom: 10px;
+}
+
+.comment {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    padding: 10px;
+    background-color: #f1f8ff; 
+}
+
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.comment-author {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.comment-author strong {
+    margin-right: 10px;
+}
+
+
+.comment-id {
+    margin-left: 10px;
+}
+
+.comment-body {
+    margin-top: 10px;
+}
+
+.comment-reactions {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.comment-reactions img {
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+}
+
+.cs-button {
+    background-color: #405de6;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.cs-button:hover {
+    background-color: #5773ff;
+}
+
+table {
+    background: white;
+    border: 1px solid #E4E5E7;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    text-align: left;
+    padding: 9px 18px;
+}
+
+th:last-child, td:last-child {
+    text-align: right;
+    color: #6A6C6F;
+}
+
+tr {
+    border-bottom: 1px solid #E4E5E7;
+}
+
+tr:nth-child(2n) {
+    background-color: #F7F9FA;
+}
+
+
+footer {
+    border-top: 1px solid #E4E5E7;
+    padding-top: 17px;
+    padding-bottom: 15px;
+    background: #efebf7;
+    height: 60px;
+    color: #6A6C6F;
+    text-align: center;
+}
+@media (max-width: 576px) {
+    header, nav, main, footer {
+      padding: 2px 10px 0;
+    }
+  
+    nav div {
+      width: 100%;
+      float: none;
+      text-align: center;
+    }
+  
+    nav a {
+      margin-right: 0.5em;
+      margin-bottom: 0.5em;
+      display: block;
+    }
+  
+    nav form {
+      margin-left: 0;
+      margin-top: 1em;
+    }
+  
+    nav div:last-child {
+      text-align: center;
+      margin-top: 1em;
+    }
+  
+    nav div:last-child a {
+      margin-left: 0.5em;
+      margin-right: 0.5em;
+      display: block;
+    }
+  }
+  
+  @media (min-width: 577px) and (max-width: 992px) {
+    header, nav, main, footer {
+      padding: 2px 20px 0;
+    }
+  
+    nav div {
+      width: 50%;
+      float: left;
+    }
+  
+    nav a {
+      margin-right: 1em;
+      margin-bottom: 0;
+      display: inline-block;
+    }
+  
+    nav form {
+      margin-left: 1em;
+      margin-top: 0;
+    }
+  
+    nav div:last-child {
+      text-align: right;
+      margin-top: 0;
+    }
+  
+    nav div:last-child a {
+      margin-left: 1em;
+      margin-right: 0;
+      display: inline-block;
+    }
+  }
+  
+  @media (min-width: 993px) {
+    header, nav, main, footer {
+      padding: 2px calc((100% - 800px) / 2) 0;
+    }
+  }
+@media (min-width: 601px) and (max-width: 960px) {
+    header, nav, main, footer {
+        padding: 2px 40px 0;
+    }
+
+    h1 a {
+        font-size: 30px;
+        height: 30px;
+        padding-left: 40px;
+    }
+
+    h2 {
+        font-size: 20px;
+        margin-bottom: 30px;
+        top: -8px;
+    }
+
+    nav div {
+        margin-bottom: 15px;
+    }
+
+    main {
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    a.button, input[type="submit"] {
+        padding: 14px 24px;
+        margin-top: 14px;
+        font-size: 18px;
+    }
+
+    form input[type="text"], form input[type="password"], form input[type="email"], textarea {
+        padding: 0.6em 14px;
+    }
+
+    textarea {
+        padding: 14px;
+        height: 220px;
+    }
+
+    table {
+        padding: 8px;
+    }
+
+    td, th {
+        padding: 8px 14px;
+    }
+
+    div.flash, div.error {
+        padding: 14px;
+        margin-bottom: 30px;
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 961px) and (max-width: 1280px) {
+    header, nav, main, footer {
+        padding: 2px 80px 0;
+    }
+
+    h1 a {
+        font-size: 36px;
+        height: 36px;
+        padding-left: 60px;
+    }
+
+    h2 {
+        font-size: 24px;
+        margin-bottom:  40px;
+        top: -10px;
+    }
+
+    nav div {
+        margin-bottom: 20px;
+    }
+
+    main {
+        margin-top: 60px;
+        margin-bottom: 60px;
+    }
+
+    a.button, input[type="submit"] {
+        padding: 16px 32px;
+        margin-top: 16px;
+        font-size: 20px;
+    }
+
+    form input[type="text"], form input[type="password"], form input[type="email"], textarea {
+        padding: 0.7em 16px;
+    }
+
+    textarea {
+        padding: 16px;
+        height: 240px;
+    }
+
+    table {
+        padding: 10px;
+    }
+
+    td, th {
+        padding: 10px 16px;
+    }
+
+    div.flash, div.error {
+        padding: 16px;
+        margin-bottom: 40px;
+        font-size: 20px;
+    }
+}
+
+@media (min-width: 1281px) {
+    header, nav, main, footer {
+        padding: 2px 120px 0;
+    }
+
+    h1 a {
+        font-size: 42px;
+        height: 42px;
+        padding-left: 80px;
+    }
+
+    h2 {
+        font-size: 28px;
+        margin-bottom: 60px;
+        top: -12px;
+    }
+
+    nav div {
+        margin-bottom: 25px;
+    }
+
+    main {
+        margin-top: 80px;
+        margin-bottom: 80px;
+    }
+
+    a.button, input[type="submit"] {
+        padding: 20px 40px;
+        margin-top: 20px;
+        font-size: 24px;
+    }
+
+    form input[type="text"], form input[type="password"], form input[type="email"], textarea {
+        padding: 0.8em 20px;
+    }
+
+    textarea {
+        padding: 20px;
+        height: 260px;
+    }
+
+    table {
+        padding: 12px;
+    }
+
+    td, th {
+        padding: 12px 20px;
+    }
+
+    div.flash, div.error {
+        padding: 20px;
+        margin-bottom: 50px;
+        font-size: 24px;
+    }
+}
+@media (max-width: 600px) {
+    header, nav, main, footer {
+        padding: 2px 20px 0;
+    }
+
+    h1 a {
+        font-size: 24px;
+        height: 24px;
+        padding-left: 30px;
+    }
+
+    h2 {
+        font-size: 18px;
+        margin-bottom: 24px;
+        top: -6px;
+    }
+
+    nav div {
+        width: 100%;
+        float: none;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    nav div:last-child {
+        text-align: center;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    nav div:last-child a {
+        margin-left: 0;
+    }
+
+    main {
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+
+    a.button, input[type="submit"] {
+        padding: 12px 18px;
+        margin-top: 12px;
+        font-size: 16px;
+    }
+
+    form input[type="text"], form input[type="password"], form input[type="email"], textarea {
+        padding: 0.5em 10px;
+    }
+
+    textarea {
+        padding: 12px;
+        height: 180px;
+    }
+
+    table {
+        padding: 5px;
+    }
+
+    td, th {
+        padding: 5px 10px;
+    }
+
+    div.flash, div.error {
+        padding: 12px;
+        margin-bottom: 24px;
+        font-size: 16px;
+    }
+}

@@ -1,0 +1,87 @@
+{{define "title"}}Post #{{.Post.ID}}{{end}}
+{{define "main"}}
+{{with .Post}}
+<div class='post'>
+    <div class='metadata'>
+        <strong>{{.Title}}</strong>
+        <span>#{{.ID}}</span>
+    </div>
+    <pre><code>{{.Content}}</code></pre>
+    <div class='metadata'>
+        {{if .IsAuthenticated}}
+            <a class="reaction like" href="/likePost?id={{.ID}}"><img src="/static/img/up.png" alt="Like"></a>
+            <strong>{{.Likes}}</strong>
+            <span>&nbsp;&nbsp;&nbsp;</span>
+            <a class="reaction dislike" href="/dislikePost?id={{.ID}}"><img src="/static/img/down.png" alt="Dislike"></a>
+            <strong>{{.Dislikes}}</strong>
+        {{else}}
+            <img src="/static/img/up.png" alt="Like">
+            <strong>{{.Likes}}</strong>
+            <span>&nbsp;&nbsp;&nbsp;</span>
+            <img src="/static/img/down.png" alt="Dislike">
+            <strong>{{.Dislikes}}</strong>
+        {{end}}
+        <time>Created: {{humanDate .Created}}</time>
+        <span>Creator: {{.UserName}}</span>
+        <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+        <span>Category: {{.Category}}</span>
+    </div>
+</div>
+{{end}}
+
+
+{{if .Comments}}
+<div class="comments">
+    <h3>Comments:</h3>
+    {{range .Comments}}
+    <div class="comment-box">
+        <div class="comment">
+            <div class="comment-header">
+                <div class="comment-author">
+                    <strong>Author: {{.Author}}</strong>
+                    <span class="comment-id">Comment ID: {{.Id}}</span>
+                </div>
+            </div>
+            <div class="comment-body">
+                <p>{{.CContent}}</p>
+            </div>
+            <div class="comment-reactions">
+                {{if .IsAuthenticated}}
+                    <a class="reaction comment-like" href="/likeComment?id={{.Id}}"><img src="/static/img/up.png" alt="Like"></a>
+                    <strong>{{.Likes}}</strong>
+                    <span>&nbsp;</span>
+                    <a class="reaction comment-dislike" href="/dislikeComment?id={{.Id}}"><img src="/static/img/down.png" alt="Dislike"></a>
+                    <strong>{{.Dislikes}}</strong>
+                {{else}}
+                    <img src="/static/img/up.png" alt="Like">
+                    <strong>{{.Likes}}</strong>
+                    <span>&nbsp;</span>
+                    <img src="/static/img/down.png" alt="Dislike">
+                    <strong>{{.Dislikes}}</strong>
+                {{end}}
+            </div>
+        </div>
+    </div>
+    {{end}}
+</div>
+{{end}}
+
+
+
+{{if .IsAuthenticated}}
+<form method="POST" action="/post/view/{{.Post.ID}}">
+    <div class="form-group">
+        <label for="comment-{{.Post.ID}}">Add a Comment:</label>
+        <textarea class="form-control no-resize" id="comment-{{.Post.ID}}" name="comment" rows="3"></textarea>
+        {{if .CommentError}}
+        <div class="error-message">
+            <p>Please enter a valid comment.</p>
+        </div>
+        {{end}}
+    </div>
+    <button type="submit" class="btn btn-primary cs-button">Submit</button>
+</form>
+{{else}}
+<p>Please <a class="login-link" href="/user/login">login</a> to post a comment or react to posts/comments.</p>
+{{end}}
+{{end}}

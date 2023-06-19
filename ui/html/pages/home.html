@@ -1,0 +1,45 @@
+{{define "title"}}Home{{end}}
+
+{{define "main"}}
+{{if .Posts}}
+<div>
+  <h3>Choose a Category:</h3>
+  <div class="category-slider">
+    <form action="/" method="POST">
+      <input type="checkbox" name="Technology" value="Technology">
+      <label for="Technology">Technology</label>
+      <input type="checkbox" name="Travel" value="Travel">
+      <label for="Travel">Travel</label>
+      <input type="checkbox" name="Health" value="Health">
+      <label for="Health">Health</label>
+      <input type="checkbox" name="Entertainment" value="Entertainment">
+      <label for="Entertainment">Entertainment</label>
+      <input type="submit" value="submit">
+    </form>
+    
+  </div>
+</div>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Created</th>
+    <th>Category</th>
+    <th>ID</th>
+  </tr>
+  {{range .Posts}}
+  <tr>
+    <td><a href='/post/view/{{.ID}}'>{{.Title}}</a></td>
+    <td>{{humanDate .Created}}</td>
+    <td>{{.Category}}</td>
+    <td>#{{.ID}}</td>
+  </tr>
+  {{end}}
+</table>
+{{else}}
+  <p>
+    {{if not .Category}}
+      There are no posts here yet.
+    {{end}}
+  </p>
+{{end}}
+{{end}}
